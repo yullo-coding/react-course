@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./common.css">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="wrap_box_ratio">
+        <div class="box_ratio">
+            <img src="./2.png" alt="">
+        </div>
+
+    </div>
+
+    <div class="wrap_box_ratio">
+        <div class="box_ratio">
+            <img src="./3.png" alt="">
+        </div>
+    </div>
+</body>
+<script>
+    // 1. 비율 박스 이미지의 가로, 세로 중 누가 더 긴지 알아낸다
+
+    // 2. 가로가 더 길면 세로로 꽉 채운다.
+
+    // 3. 세로가 더 길면 가로로 꽉 채운다.
+
+    /* 제이쿼리 버전
+    let target = $(".wrap_box_ratio img");
+
+    target.each(function(){
+        let width = $(this).width();
+        let height = $(this).height();
+
+        if(width >= height)
+        $(this).css("width", "auto").css("height", "100%");    
+    else 
+        $(this).css("height", "auto").css("width", "100%");  
+    }); 
+    */
+
+    // 자바스크립트 버전
+    let imgs = document.querySelectorAll(".wrap_box_ratio img");
+    let width;
+    let height;
+
+    imgs.forEach(img => {
+        width = img.width;
+        height = img.height;
+
+        if(width >= height){
+            img.style.width = "auto";
+            img.style.height = "100%";
+        }else{
+            img.style.width = "100%";
+            img.style.height = "auto";
+        }
+    });
+
+</script>
+</html>
